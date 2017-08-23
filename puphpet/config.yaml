@@ -128,16 +128,14 @@ nginx:
     upstreams: {  }
     vhosts:
         nxv_u6hnckn9z7pw:
-            server_name: swasp.local
-            server_aliases:
-                - www.swasp.local
-            www_root: /var/www/swasp/web/public
+            server_name: api.swasp.local
+            www_root: /var/www/api/public
             listen_port: '80'
             client_max_body_size: 1m
             ssl: '0'
             locations:
                 nxvl_heaeactv63t6:
-                    www_root: /var/www/awesome/web
+                    www_root: /var/www/api/public
                     location: /
                     autoindex: 'off'
                     internal: 'false'
@@ -156,7 +154,7 @@ nginx:
                     proxy: ''
                     proxy_redirect: ''
                 nxvl_7zxhpgyy6n26:
-                    www_root: /var/www/awesome/web
+                    www_root: /var/www/api/public
                     location: '~ ^/(app_dev|config)\.php(/|$)'
                     autoindex: 'off'
                     internal: 'false'
@@ -175,7 +173,7 @@ nginx:
                     proxy: ''
                     proxy_redirect: ''
                 nxvl_vilgxi860u29:
-                    www_root: /var/www/awesome/web
+                    www_root: /var/www/api/public
                     location: '~ ^/index\.php(/|$)'
                     autoindex: 'off'
                     internal: 'false'
@@ -193,7 +191,7 @@ nginx:
                     proxy: ''
                     proxy_redirect: ''
                 nxvl_6z6qp6hl6zkr:
-                    www_root: /var/www/awesome/web
+                    www_root: /var/www/api/public
                     location: '~ ^/app\.php(/|$)'
                     autoindex: 'off'
                     internal: 'false'
@@ -212,8 +210,10 @@ nginx:
                     proxy: ''
                     proxy_redirect: ''
         nxv_ijgir4mmr5fq:
-            server_name: api.swasp.local
-            www_root: /var/www/swasp/api/public
+            server_name: swasp.local
+            server_aliases:
+              - www.swasp.local
+            www_root: /var/www/web/public
             listen_port: '80'
             client_max_body_size: 1m
             ssl: '0'
