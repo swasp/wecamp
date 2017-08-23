@@ -374,7 +374,7 @@ python:
     packages: {  }
     versions: {  }
 nodejs:
-    install: '0'
+    install: '1'
     settings:
         version: '6'
     npm_packages: {  }

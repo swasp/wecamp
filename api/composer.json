@@ -9,6 +9,13 @@
         "bear/package": "^1.2.2",
         "josegonzalez/dotenv": "^2.1"
     },
+    "repositories": [
+        {"type": "composer", "url": "http://toran.weca.mp/repo/packagist/"},
+        {"packagist": false}
+    ],
+    "config": {
+        "secure-http":false
+    },
     "require-dev": {
         "bear/qatools": "^1.4.2",
         "phpunit/phpunit": "^6.0"
