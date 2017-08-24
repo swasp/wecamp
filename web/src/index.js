@@ -7,8 +7,8 @@ import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
-ReactDOM.render(
-    <FlightForm />,
-    document.getElementById('flightForm')
-);
+// ReactDOM.render(
+//     <FlightForm />,
+//     document.getElementById('flightForm')
+// );
 registerServiceWorker();
