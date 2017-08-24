@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './swasp.png';
-import FlightForm from './FlightForm';
+import FlightForm from './Forms/FlightForm';
+import Seatmap from './Forms/Seatmap';
+import ReactDOM from 'react-dom';
 import './App.css';
 
 class App extends Component {
@@ -11,12 +13,21 @@ class App extends Component {
 
   inputFlightCallback = (flightNo, flightDate) => {
     this.setState({flight: flightNo, date: flightDate});
-    //alert('Flightnumber set in App: ' + dataFromChild);
-    //alert('Flightnumber set in flight: ' + this.state.flight);
   }
 
   componentDidUpdate() {
     alert(this.state.flight + " " + this.state.date);
+      ReactDOM.render(
+          <Seatmap callbackFromParent={this.inputFlightCallback}/>,
+          document.getElementById('flightForm')
+      );
+  }
+
+  componentDidMount() {
+      ReactDOM.render(
+        <FlightForm callbackFromParent={this.inputFlightCallback}/>,
+        document.getElementById('flightForm')
+      );
   }
 
   render() {
@@ -28,7 +39,7 @@ class App extends Component {
         </div>
         <p className="App-intro">
         </p>
-        <FlightForm callbackFromParent={this.inputFlightCallback}/>
+        <div id="flightForm"></div>
       </div>
     );
   }
