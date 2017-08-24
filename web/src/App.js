@@ -44,7 +44,7 @@ class App extends Component {
 
   componentDidUpdate() {
       ReactDOM.render(
-          <SeatForm callbackFromParent={this.inputSeatCallback} flight={this.getFlight()}/>,
+          <SeatForm callbackFromParent={this.inputSeatCallback} flight={this.getFlight()} instruction="Which seat do you currently have?"/>,
           document.getElementById('flightForm')
       );
   }
