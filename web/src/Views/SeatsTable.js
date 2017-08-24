@@ -4,9 +4,9 @@ import SeatRow from './SeatRow';
 class SeatsTable extends React.Component {
   constructor(props) {
 
-    console.log(props);
     super(props);
-}
+  }
+
 
   render() {
     var seats = [];
