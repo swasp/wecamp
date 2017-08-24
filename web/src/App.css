@@ -41,3 +41,7 @@ table.center {
 tr, td, th {
   text-align: left;
 }
+
+img.equipment {
+  height: 700px;
+}

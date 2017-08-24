@@ -8,12 +8,6 @@ var locations = {
 };
 
 class LocationInformation extends Component {
-    constructor(props) {
-        super(props);
-    }
-
-
-
     render() {
         return (
             <span>

@@ -3,22 +3,22 @@ import ReactDOM from 'react-dom';
 import FlightDetails from '../Views/FlightDetails';
 import '../App.css';
 
-class Seatmap extends Component {
+class SeatForm extends Component {
     constructor(props) {
         super(props);
-        this.state = {row: '', seat: ''};
+        this.state = {seatrow: '', seatletter: ''};
 
-        this.handleFlightNumberChange = this.handleFlightNumberChange.bind(this);
-        this.handleDateChange = this.handleDateChange.bind(this);
+        this.handleRowChange = this.handleRowChange.bind(this);
+        this.handleSeatChange = this.handleSeatChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleFlightNumberChange(event) {
-        this.setState({flightNumber: event.target.value.toUpperCase()});
+    handleRowChange(event) {
+        this.setState({seatrow: event.target.value.toUpperCase()});
     }
 
-    handleDateChange(event) {
-        this.setState({date: event.target.value});
+    handleSeatChange(event) {
+        this.setState({seatletter: event.target.value});
     }
 
     componentDidMount() {
@@ -30,7 +30,7 @@ class Seatmap extends Component {
 
     handleSubmit(event) {
         //alert('You entered seat: ' + this.state.row  + this.state.seat);
-        this.props.callbackFromParent(this.state.row, this.state.seat);
+        this.props.callbackFromParent(this.state.seatrow, this.state.seatletter);
 
         event.preventDefault();
     }
@@ -43,22 +43,21 @@ class Seatmap extends Component {
                     <h3>Please enter your seat</h3>
                     <label>
                         <div>Row:</div>
-                        <input type="text" value={this.state.row} onChange={this.handleFlightNumberChange} />
+                        <input type="text" value={this.state.seatrow} onChange={this.handleRowChange} />
                     </label>
                     <br />
                     <br />
                     <label>
                         <div>Column:</div>
-                        <input type="text" value={this.state.seat} onChange={this.handleDateChange} />
+                        <input type="text" value={this.state.seatletter} onChange={this.handleSeatChange} />
                     </label>
                     <br/>
                     <br/>
                     <input type="submit" value="Submit" />
-                    <div id="flight"></div>
                 </form>
             </div>
         );
     }
 }
 
-export default Seatmap;
+export default SeatForm;

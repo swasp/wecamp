@@ -39,7 +39,7 @@ class FlightForm extends Component {
                 <h3>Please enter your flight number</h3>
                 <label>
                     <div>Flight Number:</div>
-                    <input type="text" value={this.state.value} onChange={this.handleFlightNumberChange} />
+                    <input type="text" value={this.state.flightNumber} onChange={this.handleFlightNumberChange} />
                 </label>
                 <br />
                 <br />
