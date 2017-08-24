@@ -35,23 +35,20 @@ class FlightForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <div className="center">
+            <form onSubmit={this.handleSubmit} className="row col-md-4 col-md-push-4">
                 <h3>Please enter your flight number</h3>
-                <label>
-                    <div>Flight Number:</div>
-                    <input type="text" value={this.state.flightNumber} onChange={this.handleFlightNumberChange} />
-                </label>
-                <br />
-                <br />
-                <label>
-                    <div>Date:</div>
-                    <input type="date" value={this.state.date} onChange={this.handleDateChange} />
-                </label>
-                <br/>
-                <br/>
+                <div className="form-group">
+                    <label className="col-md-6" for="flightNumberInput">Flight Number:</label>
+                    <input id="flightNumberInput" type="text" value={this.state.flightNumber} onChange={this.handleFlightNumberChange} />
+                </div>
+                <div className="form-group">
+                <label className="col-md-6" for="flightDateInput">Date:</label>
+                    <input id="flightDateInput" type="date" value={this.state.date} onChange={this.handleDateChange} />
+                </div>
                 <input type="submit" value="Submit" />
-                <div id="flight"></div>
             </form>
+            </div>
         );
     }
 }
