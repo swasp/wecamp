@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 
-class Seatmap extends React.Component {
+class Seatmap extends Component {
     constructor(props) {
         super(props);
         this.state = {row: '', seat: ''};
