@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  animation: App-logo-spin 1 20s linear;
+  animation: App-logo-spin 1 10s linear;
   height: 80px;
 }
 
@@ -20,6 +20,10 @@ label div {
   text-align: right;
 }
 
+.flightInformation {
+  text-align: center;
+}
+
 .App-intro {
   font-size: large;
 }
@@ -27,4 +31,13 @@ label div {
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+table.center {
+  margin-left:auto;
+  margin-right:auto;
+}
+
+tr, td, th {
+  text-align: left;
 }
