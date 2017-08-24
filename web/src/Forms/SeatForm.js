@@ -18,14 +18,16 @@ class SeatForm extends Component {
     }
 
     handleSeatChange(event) {
-        this.setState({seatletter: event.target.value});
+        this.setState({seatletter: event.target.value.toUpperCase()});
     }
 
     componentDidMount() {
-        ReactDOM.render(
-            <FlightDetails flight={this.props.flight} />,
-            document.getElementById('flightDetails')
-        );
+        if (this.props.flight) {
+            ReactDOM.render(
+                <FlightDetails flight={this.props.flight}/>,
+                document.getElementById('flightDetails')
+            );
+        }
     }
 
     handleSubmit(event) {
@@ -37,23 +39,28 @@ class SeatForm extends Component {
 
     render() {
         return (
-            <div>
+            <div className="center">
                 <div id="flightDetails"></div>
-                <form onSubmit={this.handleSubmit}>
-                    <h3>Please enter your seat</h3>
-                    <label>
-                        <div>Row:</div>
-                        <input type="text" value={this.state.seatrow} onChange={this.handleRowChange} />
-                    </label>
-                    <br />
-                    <br />
-                    <label>
-                        <div>Column:</div>
-                        <input type="text" value={this.state.seatletter} onChange={this.handleSeatChange} />
-                    </label>
-                    <br/>
-                    <br/>
-                    <input type="submit" value="Submit" />
+                <form onSubmit={this.handleSubmit} className="row col-md-4 col-md-push-4 form-horizontal">
+                    <h3>{this.props.instruction}</h3>
+                    <div className="form-group">
+                        <label className="col-md-6 control-label" htmlFor="seatRowInput">Row:</label>
+                        <div className="col-md-6">
+                            <input className="form-control" id="seatRowInput" type="text" value={this.state.seatrow} onChange={this.handleRowChange} />
+                        </div>
+                    </div>
+                    <div className="clearfix"></div>
+                    <div className="form-group">
+                        <label className="col-md-6 control-label" htmlFor="seatColumnInput">Seat:</label>
+                        <div className="col-md-6">
+                            <input className="form-control" id="seatColumnInput" type="date" value={this.state.seatletter} onChange={this.handleSeatChange} />
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <div className="col-sm-offset-6 col-sm-6">
+                            <input type="submit" value="Submit" className="btn btn-default"/>
+                        </div>
+                    </div>
                 </form>
             </div>
         );
