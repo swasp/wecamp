@@ -4,6 +4,7 @@ import FlightForm from './Forms/FlightForm';
 import SeatForm from './Forms/SeatForm';
 import AircraftInformation from './Views/AircraftInformation';
 import ReactDOM from 'react-dom';
+import MyFlights from './Views/MyFlights';
 import './App.css';
 
 var flights = {
@@ -12,6 +13,37 @@ var flights = {
     "KL789": {from: 'AMS', to: 'FRA', equipment: 'KLM_Embraer_ERJ-175.jpg'},
     "KL987": {from: 'FRA', to: 'AMS', equipment: 'KLM_Fokker_70.jpg'}
 };
+
+var FLIGHTS = [
+  {
+      number: 'AA100',
+      seats: [
+          {
+              row: 13,
+              col: 'A',
+              status: 'accepted'
+          }, {
+              row: 16,
+              col: 'F',
+              status: 'up for grab'
+          }
+      ]
+  },{
+      number: 'BB200',
+      seats: [
+          {
+              row: 17,
+              col: 'C',
+              status: 'up for grab'
+          }, {
+              row: 25,
+              col: 'D',
+              status: 'accepted',
+              message: 'changed to 5B'
+          }
+      ]
+      }
+]
 
 class App extends Component {
   constructor(props) {
@@ -49,25 +81,10 @@ class App extends Component {
       );
   }
 
-  componentDidMount() {
-      ReactDOM.render(
-        <FlightForm callbackFromParent={this.inputFlightCallback}/>,
-        document.getElementById('flightForm')
-      );
-  }
-
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome</h2>
-        </div>
-        <p className="App-intro">
-        </p>
-        <div id="flightForm"></div>
-      </div>
-    );
+          <MyFlights flights={FLIGHTS} />
+    )
   }
 }
 
