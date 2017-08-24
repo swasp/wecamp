@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import logo from './swasp.png';
-import FlightForm from './Forms/FlightForm';
 import SeatForm from './Forms/SeatForm';
 import AircraftInformation from './Views/AircraftInformation';
 import ReactDOM from 'react-dom';
+import Home from './Views/Home';
 import MyFlights from './Views/MyFlights';
+import Navigation from './Views/Navigation';
 import './App.css';
 
 var flights = {
@@ -43,6 +44,10 @@ class App extends Component {
     this.setState({flight: flightNo, date: flightDate});
   }
 
+  componentDidMount() {
+    this.loadHome();
+  }
+
   componentDidUpdate() {
       ReactDOM.render(
           <SeatForm callbackFromParent={this.inputSeatCallback} flight={this.getFlight()} instruction="Which seat do you currently have?"/>,
@@ -50,10 +55,48 @@ class App extends Component {
       );
   }
 
+  loadHome() {
+    ReactDOM.render(
+      <Home />,
+      document.getElementById('content')
+    );
+  }
+
+  loadFlight() {
+
+  }
+
+  loadMyFlights() {
+    ReactDOM.render(
+      <MyFlights/>,
+      document.getElementsById('content')
+    );
+  }
+
+  loadMySeats() {
+    alert('My Seats');
+  }
+
+  loadMyRequests() {
+    alert('My Requests');
+  }
+
   render() {
     return (
-          <MyFlights />
-    )
+      <div className="App">
+        <div className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h2>Welcome</h2>
+        </div>
+        <Navigation
+          loadHome={this.loadHome}
+          loadMyFlights={this.loadMyFlights}
+          loadMyRequests={this.loadMyRequests}
+          loadMySeats={this.loadMySeats}
+        />
+        <div id="content"></div>
+      </div>
+    );
   }
 }
 
