@@ -20,7 +20,7 @@ class FlightForm extends Component {
     }
 
     handleSubmit(event) {
-        alert('You entered flight number: ' + this.state.flightNumber + ' on ' + this.state.date);
+        //alert('You entered flight number: ' + this.state.flightNumber + ' on ' + this.state.date);
         //this.setState({flightNumber: this.state.value});
         this.props.callbackFromParent(this.state.flightNumber, this.state.date);
         //var flight = Flight.props({flightNo: this.state.value});

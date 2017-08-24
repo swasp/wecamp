@@ -16,9 +16,10 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    alert(this.state.flight + " " + this.state.date);
+    //alert(this.state.flight + " " + this.state.date);
+      var flight = {flightNumber: this.state.flight, flightDate: this.state.date, from: 'AMS', to: 'MAN'};
       ReactDOM.render(
-          <Seatmap callbackFromParent={this.inputFlightCallback}/>,
+          <Seatmap callbackFromParent={this.inputFlightCallback} flight={flight}/>,
           document.getElementById('flightForm')
       );
   }
