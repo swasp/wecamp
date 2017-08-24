@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 
-class FlightForm extends React.Component {
+class FlightForm extends Component {
     constructor(props) {
         super(props);
         this.state = {flightNumber: '', date: ''};
