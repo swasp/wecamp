@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  Switch
 } from 'react-router-dom';
 
 import Home from './Views/Home';
@@ -17,7 +18,7 @@ import MyFlights from './Views/MyFlights';
 import logo from './swasp.png';
 import './App.css';
 
-var flights = {
+const flights = {
     "KL123": {from: 'AMS', to: 'MAN', equipment: 'KLM_Airbus_A330-300.jpg'},
     "KL124": {from: 'MAN', to: 'AMS', equipment: 'KLM_Boeing_737-800.jpg'},
     "KL789": {from: 'AMS', to: 'FRA', equipment: 'KLM_Embraer_ERJ-175.jpg'},
@@ -110,9 +111,12 @@ class App extends Component {
           </nav>
 
           <div>
-            <Route exact path="/" component={Home}/>
-            <Route path="/flights" render={() => <MyFlights flights={FLIGHTS}/>} />
-            {/*<Route path="/requests" component={Requests}/>*/}
+            <Switch>
+              <Route exact path="/" component={Home}/>
+              <Route path="/flights" render={() => <MyFlights flights={FLIGHTS}/>} />
+              {/*<Route path="/requests" component={Requests}/>*/}
+              <Route render={() => <div><h1>404</h1><p>Page not found!</p></div>}/>
+            </Switch>
           </div>
         </div>
       </Router>
