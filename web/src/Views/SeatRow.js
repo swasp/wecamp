@@ -6,17 +6,33 @@ import PrintButton from '../Buttons/PrintButton';
 class SeatRow extends React.Component {
 
   constructor(props) {
-    console.log(props);
     super(props);
-}
+
+    this.removeRow = this.removeRow.bind(this);
+
+    this.state = {deleted: false};
+  }
+
+  removeRow() {
+    this.setState({deleted: true});
+  }
+
+  componentWillUpdate() {
+    // notify the API of the removal!!
+  }
+
   render() {
     var buttons = [];
+    if (this.state.deleted) {
+      return(null);
+    }
+
     if(this.props.seat.status == 'pending') {
       buttons.push(
         <EditButton seat={this.props.seat} />
       );
       buttons.push(
-        <DeleteButton seat={this.props.seat} />
+        <DeleteButton clickHandler={this.removeRow} seat={this.props.seat} />
       );
     };
     if(this.props.seat.status == 'accepted') {

@@ -1,10 +1,21 @@
 import React, { Component } from 'react';
 
 class PrintButton extends React.Component {
-  render() {
-    return (
-      <button>Print</button>
-    );
+
+    constructor(props) {
+        super(props);
+
+        this.handleClick = this.clickHandler.bind(this);
+    }
+
+    clickHandler() {
+        console.log(this);
+    }
+
+    render() {
+      return (
+        <button onClick={this.handleClick}>Print</button>
+      );
   }
 }
 

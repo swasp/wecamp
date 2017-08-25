@@ -34,7 +34,7 @@ var FLIGHTS = [
           {
               row: 17,
               col: 'C',
-              status: 'up for grab'
+              status: 'pending'
           }, {
               row: 25,
               col: 'D',

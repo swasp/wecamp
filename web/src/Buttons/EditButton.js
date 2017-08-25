@@ -1,11 +1,22 @@
 import React, { Component } from 'react';
 
 class EditButton extends React.Component {
-  render() {
-    return (
-      <button>Edit</button>
-    );
-  }
+
+    constructor(props) {
+        super(props);
+
+        this.handleClick = this.clickHandler.bind(this);
+    }
+
+    clickHandler() {
+      console.log(this);
+    }
+
+    render() {
+      return (
+        <button onClick={this.handleClick}>Edit</button>
+      );
+    }
 }
 
 export default EditButton;
