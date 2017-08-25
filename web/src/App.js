@@ -14,37 +14,6 @@ var flights = {
     "KL987": {from: 'FRA', to: 'AMS', equipment: 'KLM_Fokker_70.jpg'}
 };
 
-var FLIGHTS = [
-  {
-      number: 'AA100',
-      seats: [
-          {
-              row: 13,
-              col: 'A',
-              status: 'accepted'
-          }, {
-              row: 16,
-              col: 'F',
-              status: 'up for grab'
-          }
-      ]
-  },{
-      number: 'BB200',
-      seats: [
-          {
-              row: 17,
-              col: 'C',
-              status: 'pending'
-          }, {
-              row: 25,
-              col: 'D',
-              status: 'accepted',
-              message: 'changed to 5B'
-          }
-      ]
-      }
-]
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -83,7 +52,7 @@ class App extends Component {
 
   render() {
     return (
-          <MyFlights flights={FLIGHTS} />
+          <MyFlights />
     )
   }
 }
