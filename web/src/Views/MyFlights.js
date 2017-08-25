@@ -5,29 +5,29 @@ class MyFlights extends Component {
 
     constructor(props) {
         super(props);
+        this.state = { items: { flights: [] } };
+    }
+
+    componentDidMount() {
+        fetch('http://api.swasp.local/MyFlights.json')
+            .then(result=>result.json())
+            .then(items=>this.setState({items}))
     }
   
     render() {
-        var flights = [];
-        this.props.flights.forEach(function(flight) {
-            flights.push(<Flight flight={flight} />
-        )
-      });
-
-
-
         return (
         <div>
             <div className="col-md-12">
                 <h1>My Flights </h1>
             </div>
-            <div className="col-md-12">{flights}</div>
+            <ul className="col-md-12">
+                {this.state.items.flights.map(item=><Flight flight={item} />)}
+            </ul>
         </div>
         )
     }
 
 }
-
 
 export default MyFlights;
 

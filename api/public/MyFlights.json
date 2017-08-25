@@ -1,0 +1,30 @@
+{ "flights": [
+  {
+      "number": "AA100",
+      "seats": [
+          {
+              "row": 13,
+              "col": "A",
+              "status": "accepted"
+          }, {
+              "row": 16,
+              "col": "F",
+              "status": "up for grab"
+          }
+      ]
+  },{
+      "number": "BB200",
+      "seats": [
+          {
+              "row": 17,
+              "col": "C",
+              "status": "pending"
+          }, {
+              "row": 25,
+              "col": "D",
+              "status": "accepted",
+              "message": "changed to 5B"
+          }
+      ]
+      }
+]}
