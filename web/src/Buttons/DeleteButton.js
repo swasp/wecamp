@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class DeleteButton extends React.Component {
+class DeleteButton extends Component {
 
     constructor(props) {
         super(props);
@@ -18,7 +18,7 @@ class DeleteButton extends React.Component {
 
     render() {
       return (
-        <button onClick={this.props.clickHandler}>Delete</button>
+        <button className="btn btn-danger" onClick={this.props.clickHandler}>Delete</button>
       );
   }
 }

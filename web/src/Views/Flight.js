@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SeatsTable from './SeatsTable';
 
-class Flight extends React.Component {
+class Flight extends Component {
 
   constructor(props) {
     console.log(props);
@@ -10,10 +10,10 @@ class Flight extends React.Component {
 
   render() {
     return (
-      <li>
+      <div className="col-md-12">
         <h2>Flight Nr. {this.props.flight.number}</h2>
         <SeatsTable seats={this.props.flight.seats}/>
-      </li>
+      </div>
 
     );
   }

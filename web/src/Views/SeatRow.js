@@ -3,7 +3,7 @@ import EditButton from '../Buttons/EditButton';
 import DeleteButton from '../Buttons/DeleteButton';
 import PrintButton from '../Buttons/PrintButton';
 
-class SeatRow extends React.Component {
+class SeatRow extends Component {
 
   constructor(props) {
     super(props);
@@ -27,7 +27,7 @@ class SeatRow extends React.Component {
       return(null);
     }
 
-    if(this.props.seat.status == 'pending') {
+    if(this.props.seat.status === 'pending') {
       buttons.push(
         <EditButton seat={this.props.seat} />
       );
@@ -35,7 +35,7 @@ class SeatRow extends React.Component {
         <DeleteButton clickHandler={this.removeRow} seat={this.props.seat} />
       );
     };
-    if(this.props.seat.status == 'accepted') {
+    if(this.props.seat.status === 'accepted') {
       buttons.push(
         <PrintButton seat={this.props.seat} />
       );
@@ -46,10 +46,11 @@ class SeatRow extends React.Component {
 
     return (
      <tr>
-        <td>{this.props.seat.row}{this.props.seat.col}</td>
-         <td>{this.props.seat.status}</td>
-         <td>{buttons}</td>
-       </tr>
+       <td>{this.props.seat.row}{this.props.seat.col}</td>
+       <td>...</td>
+       <td>{this.props.seat.status}</td>
+       <td>{buttons}</td>
+     </tr>
     )
   }
 }

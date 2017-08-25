@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class EditButton extends React.Component {
+class EditButton extends Component {
 
     constructor(props) {
         super(props);
@@ -14,7 +14,7 @@ class EditButton extends React.Component {
 
     render() {
       return (
-        <button onClick={this.handleClick}>Edit</button>
+        <button className="btn btn-primary" onClick={this.handleClick}>Edit</button>
       );
     }
 }
