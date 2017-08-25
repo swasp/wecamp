@@ -9,7 +9,7 @@
 
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 164px;
   padding: 20px;
   color: white;
 }
@@ -45,3 +45,18 @@ tr, td, th {
 img.equipment {
   height: 700px;
 }
+
+form.flightform {
+  padding-top: 7px;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+div.flightsheader {
+  left: 33.33333333%;
+  width: 33.33333333%;
+  text-align: left;
+  padding-top: 7px;
+}
+
+

@@ -16,8 +16,8 @@ class MyFlights extends Component {
     render() {
         return (
         <div>
-            <div className="col-md-12">
-                <h1>My Flights</h1>
+            <div className="col-md-12 flightsheader">
+                <h4>You have following flights listed</h4>
             </div>
             <ul className="col-md-12">
                 {this.state.items.flights.map(item=><Flight flight={item} />)}
