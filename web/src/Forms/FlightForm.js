@@ -20,16 +20,8 @@ class FlightForm extends Component {
     }
 
     handleSubmit(event) {
-        //alert('You entered flight number: ' + this.state.flightNumber + ' on ' + this.state.date);
-        //this.setState({flightNumber: this.state.value});
-        this.props.callbackFromParent(this.state.flightNumber, this.state.date);
-        //var flight = Flight.props({flightNo: this.state.value});
-        // flight.setFlight(this.state.value);
-        //this.setState({flight: flight});
-        //  ReactDOM.render(
-        //      this.state.flight,
-        //      document.getElementById('flight')
-        //  );
+        alert('submit form');
+        //this.props.callbackFromParent(this.state.flightNumber, this.state.date);
         event.preventDefault();
     }
 
