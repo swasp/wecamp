@@ -10,6 +10,7 @@ class PrintButton extends Component {
 
     clickHandler() {
         console.log(this);
+        alert('No Printer attached, so Sorry!');
     }
 
     render() {
