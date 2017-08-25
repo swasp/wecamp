@@ -9,6 +9,10 @@ class Flight extends ResourceObject
     {
         $this['flight'] = $this->getFlight($flightnumber);
 
+        if ($this['flight'] === null) {
+            $this->code = 404;
+        }
+
         return $this;
     }
 
@@ -36,6 +40,7 @@ class Flight extends ResourceObject
                 'equipment' => 'KLM_Fokker_70.jpg'
             ],
         ];
-        return $flights[strtoupper($flightNumber)];
+
+        return $flights[strtoupper($flightNumber)] ?? null;
     }
 }
