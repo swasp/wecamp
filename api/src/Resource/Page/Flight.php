@@ -2,16 +2,19 @@
 namespace swasp\api\Resource\Page;
 
 use BEAR\Resource\ResourceObject;
+use Koriym\HttpConstants\StatusCode;
 
 class Flight extends ResourceObject
 {
     public function onGet(string $flightnumber = '') : ResourceObject
     {
-        $this['flight'] = $this->getFlight($flightnumber);
+        $flight = $this->getFlight($flightnumber);
 
-        if ($this['flight'] === null) {
-            $this->code = 404;
+        if ($flight === null) {
+            $this->code = StatusCode::NOT_FOUND;
         }
+
+        $this['flight'] = $flight;
 
         return $this;
     }
