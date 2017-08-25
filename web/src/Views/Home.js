@@ -18,16 +18,21 @@ class Home extends Component {
     }
 
     inputFlightCallback = (flightNo, flightDate) => {
-        this.setState({flight: flightNo, date: flightDate});
+        fetch('http://api.swasp.local/flight?flightnumber=' + flightNo)
+            .then(result=>result.json())
+            .then(flight=>this.setState({flight}));
     };
 
+
+
     getFlight() {
+
         var flight = {
-            flightNumber: this.state.flight,
-            flightDate: this.state.date,
-            from: flights[this.state.flight].from,
-            to: flights[this.state.flight].to,
-            equipment: "img/equipment/" + flights[this.state.flight].equipment
+            flightNumber: this.state.flight.flight.number,
+            flightDate: this.state.flight.flight.date,
+            from: this.state.flight.flight.from,
+            to: this.state.flight.flight.to,
+            equipment: "img/equipment/" + this.state.flight.flight.equipment
         };
 
         return flight;
