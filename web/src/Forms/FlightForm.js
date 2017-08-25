@@ -20,8 +20,7 @@ class FlightForm extends Component {
     }
 
     handleSubmit(event) {
-        alert('submit form');
-        //this.props.callbackFromParent(this.state.flightNumber, this.state.date);
+        this.props.callbackFromParent(this.state.flightNumber, this.state.date);
         event.preventDefault();
     }
 
