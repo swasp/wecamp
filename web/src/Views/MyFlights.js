@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Flight from './Flight';
 
-class MyFlights extends React.Component {
+class MyFlights extends Component {
 
     constructor(props) {
         super(props);
@@ -18,8 +18,10 @@ class MyFlights extends React.Component {
 
         return (
         <div>
-            <h1>My Flights </h1>
-            <ul>{flights}</ul>
+            <div className="col-md-12">
+                <h1>My Flights </h1>
+            </div>
+            <div className="col-md-12">{flights}</div>
         </div>
         )
     }

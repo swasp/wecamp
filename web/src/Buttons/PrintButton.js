@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class PrintButton extends React.Component {
+class PrintButton extends Component {
 
     constructor(props) {
         super(props);
@@ -14,7 +14,7 @@ class PrintButton extends React.Component {
 
     render() {
       return (
-        <button onClick={this.handleClick}>Print</button>
+        <button className="btn btn-default" onClick={this.handleClick}>Print</button>
       );
   }
 }
