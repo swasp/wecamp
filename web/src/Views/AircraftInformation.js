@@ -25,7 +25,7 @@ class AircraftInformation extends Component {
             document.getElementById('seatMap')
         );
         ReactDOM.render(
-            <SeatForm callbackFromParent={this.requestSeatCallback} instruction="Which seat do you want?"/>,
+            <SeatForm callbackFromParent={this.requestSeatCallback.bind(this)} instruction="Which seat do you want?"/>,
             document.getElementById('swapRequestForm')
         );
     }
