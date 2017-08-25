@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
-import logo from './swasp.png';
+import ReactDOM from 'react-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
+
+import Home from './Views/Home';
+//import Requests from './Views/';
+//import Seats from './Views/';
+
 import SeatForm from './Forms/SeatForm';
 import AircraftInformation from './Views/AircraftInformation';
-import ReactDOM from 'react-dom';
-import Home from './Views/Home';
 import MyFlights from './Views/MyFlights';
-import Navigation from './Views/Navigation';
+
+import logo from './swasp.png';
 import './App.css';
 
 var flights = {
@@ -14,6 +23,38 @@ var flights = {
     "KL789": {from: 'AMS', to: 'FRA', equipment: 'KLM_Embraer_ERJ-175.jpg'},
     "KL987": {from: 'FRA', to: 'AMS', equipment: 'KLM_Fokker_70.jpg'}
 };
+
+const FLIGHTS = [
+  {
+      number: 'AA100',
+      seats: [
+          {
+              row: 13,
+              col: 'A',
+              status: 'accepted'
+          }, {
+              row: 16,
+              col: 'F',
+              status: 'up for grab'
+          }
+      ]
+  },
+  {
+    number: 'BB200',
+    seats: [
+        {
+            row: 17,
+            col: 'C',
+            status: 'up for grab'
+        }, {
+            row: 25,
+            col: 'D',
+            status: 'accepted',
+            message: 'changed to 5B'
+        }
+    ]
+  }
+];
 
 class App extends Component {
   constructor(props) {
@@ -38,15 +79,11 @@ class App extends Component {
           <AircraftInformation flight={this.getFlight()} seatLetter={seatLetter} seatRow={seatRow}/>,
           document.getElementById('flightForm')
       );
-  }
+  };
 
   inputFlightCallback = (flightNo, flightDate) => {
     this.setState({flight: flightNo, date: flightDate});
-  }
-
-  componentDidMount() {
-    this.loadHome();
-  }
+  };
 
   componentDidUpdate() {
       ReactDOM.render(
@@ -55,47 +92,30 @@ class App extends Component {
       );
   }
 
-  loadHome() {
-    ReactDOM.render(
-      <Home />,
-      document.getElementById('content')
-    );
-  }
-
-  loadFlight() {
-
-  }
-
-  loadMyFlights() {
-    ReactDOM.render(
-      <MyFlights/>,
-      document.getElementsById('content')
-    );
-  }
-
-  loadMySeats() {
-    alert('My Seats');
-  }
-
-  loadMyRequests() {
-    alert('My Requests');
-  }
-
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome</h2>
+      <Router>
+        <div className="App">
+          <div className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+            <h2>Welcome</h2>
+          </div>
+
+          <nav>
+            <ul className="nav nav-pills nav-justified">
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/flights">My Flights</Link></li>
+              <li><Link to="/requests">My Requests</Link></li>
+            </ul>
+          </nav>
+
+          <div>
+            <Route exact path="/" component={Home}/>
+            <Route path="/flights" render={() => <MyFlights flights={FLIGHTS}/>} />
+            {/*<Route path="/requests" component={Requests}/>*/}
+          </div>
         </div>
-        <Navigation
-          loadHome={this.loadHome}
-          loadMyFlights={this.loadMyFlights}
-          loadMyRequests={this.loadMyRequests}
-          loadMySeats={this.loadMySeats}
-        />
-        <div id="content"></div>
-      </div>
+      </Router>
     );
   }
 }
