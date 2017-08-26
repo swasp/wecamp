@@ -14,7 +14,7 @@ class EditButton extends Component {
 
     render() {
       return (
-        <button className="btn btn-primary" onClick={this.handleClick}>Edit</button>
+        <button className="btn btn-primary btn-xs" onClick={this.handleClick}>Edit</button>
       );
     }
 }

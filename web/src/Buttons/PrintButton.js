@@ -15,7 +15,7 @@ class PrintButton extends Component {
 
     render() {
       return (
-        <button className="btn btn-default" onClick={this.handleClick}>Print</button>
+        <button className="btn btn-default btn-xs" onClick={this.handleClick}>Print</button>
       );
   }
 }

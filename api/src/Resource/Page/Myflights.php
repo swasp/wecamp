@@ -19,12 +19,16 @@ class Myflights extends ResourceObject
     {
         $flights =  [
         [
-            "number" => "AA100",
+            "number" => "KL123",
             "seats" => [
               [
                   "row" => 13,
                   "col" => "A",
-                  "status" => "accepted"
+                  "status" => "accepted",
+                  "requested" => [
+                      "row" => 23,
+                      "col" => "F",
+                  ],
               ], [
                   "row" => 16,
                   "col" => "F",
@@ -32,17 +36,33 @@ class Myflights extends ResourceObject
               ]
             ]
         ],[
-            "number" => "BB200",
+            "number" => "KL987",
             "seats" => [
                 [
                     "row" => 17,
                     "col" => "C",
-                    "status" => "pending"
+                    "status" => "pending",
+                    "requested" => [
+                        "row" => 1,
+                        "col" => "C",
+                    ],
                 ], [
                     "row" => 25,
                     "col" => "D",
                     "status" => "accepted",
-                    "message" => "changed to 5B"
+                    "message" => "changed to 5B",
+                    "requested" => [
+                        "row" => 1,
+                        "col" => "A",
+                    ],
+                ], [
+                    "row" => 32,
+                    "col" => "C",
+                    "status" => "rejected",
+                    "requested" => [
+                        "row" => 1,
+                        "col" => "B",
+                    ],
                 ]
             ]
           ]

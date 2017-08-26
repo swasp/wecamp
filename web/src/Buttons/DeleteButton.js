@@ -18,7 +18,7 @@ class DeleteButton extends Component {
 
     render() {
       return (
-        <button className="btn btn-danger" onClick={this.props.clickHandler}>Delete</button>
+        <button className="btn btn-danger btn-xs" onClick={this.props.clickHandler}>Delete</button>
       );
   }
 }
