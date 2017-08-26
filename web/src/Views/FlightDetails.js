@@ -3,6 +3,10 @@ import LocationInformation from './LocationInformation';
 import '../App.css';
 
 class FlightDetails extends Component {
+    constructor(props) {
+        super(props);
+    }
+
    render() {
         return (
             <div className="flightInformation">

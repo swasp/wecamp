@@ -23,33 +23,51 @@ class SeatRow extends Component {
 
   render() {
     var buttons = [];
+    var requestedSeat = [];
+    var className = '';
     if (this.state.deleted) {
       return(null);
     }
 
-    if(this.props.seat.status === 'pending') {
-      buttons.push(
-        <EditButton seat={this.props.seat} />
-      );
-      buttons.push(
-        <DeleteButton clickHandler={this.removeRow} seat={this.props.seat} />
-      );
-    };
-    if(this.props.seat.status === 'accepted') {
-      buttons.push(
-        <PrintButton seat={this.props.seat} />
-      );
-    };
+    switch (this.props.seat.status) {
+      case 'pending':
+        className += 'warning';
+        buttons.push(
+            <EditButton seat={this.props.seat} />
+        );
+        buttons.push(
+            <DeleteButton clickHandler={this.removeRow} seat={this.props.seat} />
+        );
+        break;
+
+      case 'accepted':
+        className += 'success';
+        buttons.push(
+            <PrintButton seat={this.props.seat} />
+        );
+        break;
+
+      case 'rejected':
+        className += 'danger';
+        buttons.push(
+            <PrintButton seat={this.props.seat} />
+        );
+        break;
+    }
+
+    if (this.props.seat.requested) {
+      requestedSeat = this.props.seat.requested.row + this.props.seat.requested.col
+    }
     
     // edit and delete button only visible when it's pending
     // print only when accepted
 
     return (
      <tr>
-       <td>{this.props.seat.row}{this.props.seat.col}</td>
-       <td>...</td>
-       <td>{this.props.seat.status}</td>
-       <td>{buttons}</td>
+       <td className={className}>{this.props.seat.row}{this.props.seat.col}</td>
+       <td className={className}>{requestedSeat}</td>
+       <td className={className}>{this.props.seat.status}</td>
+       <td className={className}>{buttons}</td>
      </tr>
     )
   }
