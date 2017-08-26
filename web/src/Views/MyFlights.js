@@ -8,7 +8,7 @@ class MyFlights extends Component {
     }
 
     componentDidMount() {
-        fetch('http://api.swasp.local/MyFlights.json')
+        fetch('http://api.swasp.local/myflights')
             .then(result=>result.json())
             .then(items=>this.setState({items}));
     }
